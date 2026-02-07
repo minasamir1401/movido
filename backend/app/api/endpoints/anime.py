@@ -1,6 +1,7 @@
 import base64
 from fastapi import APIRouter, HTTPException, Query
 from typing import List, Dict, Any
+from scraper.mycima import scraper as mycima_scraper
 from scraper.anime4up import anime4up_scraper
 from scraper.animerco import animerco_scraper
 from ...core.cache import api_cache
@@ -11,120 +12,107 @@ logger = logging.getLogger("api.anime")
 
 @router.get("/home")
 async def get_anime_home():
-    cache_key = "anime_home"
-    cached = api_cache.get(cache_key)
+    cache_key = "anime_home_v2"
+    cached = await api_cache.get(cache_key)
     if cached:
         return cached
     
     try:
-        data = await anime4up_scraper.fetch_home()
-        api_cache.set(cache_key, data, ttl_seconds=3600)
+        # Fetch data from ArabSeed 'cartoon-series' category
+        items = await mycima_scraper.fetch_category("cartoon-series", page=1)
+        
+        # Structure it as sections for the frontend
+        # We can split the items into mock sections or just return one "Latest" section
+        data = {
+            "Latest Updates": items,
+            "Featured Series": items[:10] if items else [] # Just a duplicate for UI visual if needed
+        }
+        
+        await api_cache.set(cache_key, data, ttl_seconds=3600)
         return data
     except Exception as e:
         logger.error(f"Error fetching anime home: {e}")
-        raise HTTPException(status_code=500, detail="Failed to fetch anime home")
+        # Fallback to empty
+        return {}
 
 @router.get("/list")
 async def get_anime_list(page: int = 1):
-    cache_key = f"anime_list_{page}"
-    cached = api_cache.get(cache_key)
+    cache_key = f"anime_list_v2_{page}"
+    cached = await api_cache.get(cache_key)
     if cached:
         return cached
     
     try:
-        items = await anime4up_scraper.fetch_anime_list(page=page)
-        api_cache.set(cache_key, items)
+        # Fetch pagination from ArabSeed
+        items = await mycima_scraper.fetch_category("cartoon-series", page=page)
+        await api_cache.set(cache_key, items, ttl_seconds=3600)
         return items
     except Exception as e:
         logger.error(f"Error fetching anime list: {e}")
-        raise HTTPException(status_code=500, detail="Failed to fetch anime list")
+        return []
 
 @router.get("/search")
 async def search_anime(q: str):
-    cache_key = f"anime_search_{q}"
-    cached = api_cache.get(cache_key)
+    cache_key = f"anime_search_v2_{q}"
+    cached = await api_cache.get(cache_key)
     if cached:
         return cached
     
     try:
-        items = await anime4up_scraper.search(q)
-        api_cache.set(cache_key, items, ttl_seconds=3600)
+        # User wants anime search. 
+        # Since we switched the main view to ArabSeed, we should probably search ArabSeed.
+        # However, ArabSeed search returns everything. We might want to filter or just accept it.
+        items = await mycima_scraper.search(q)
+        
+        # Optional: Filter for anime-ish results if possible, but hard to tell by title alone.
+        # We can also search anime4up as aggregation if needed, but keeping it simple for now.
+        
+        await api_cache.set(cache_key, items, ttl_seconds=3600)
         return items
     except Exception as e:
         logger.error(f"Error searching anime: {e}")
-        raise HTTPException(status_code=500, detail="Search operation failed")
+        return []
 
 @router.get("/details/{safe_id}")
 async def get_anime_details(safe_id: str):
-    # cache_key = f"anime_details_{safe_id}"
-    # cached = api_cache.get(cache_key)
-    # if cached:
-    #     return cached
-    
     try:
-        # Determine which scraper to use based on the safe_id
+        # Decode to check domain
         try:
-            decoded_url = base64.urlsafe_b64decode(safe_id).decode()
-            
-            # Check if the decoded URL contains unsafe domains
-            unsafe_domains = ['larooza.homes', 'gaza.20', 'bit.ly', 'tinyurl.com', 'adf.ly', 'bc.vc', 'adfoc.us', 'shorte.st', 'ouo.io', 'clicksfly.com']
-            for domain in unsafe_domains:
-                if domain in decoded_url.lower():
-                    raise HTTPException(status_code=400, detail="Invalid or blocked content URL")
-            
-            if "animerco.org" in decoded_url:
-                details = await animerco_scraper.fetch_details(safe_id)
-            else:
-                details = await anime4up_scraper.fetch_details(safe_id)
-        except HTTPException:
-            # Re-raise HTTP exceptions
-            raise
+            decoded_url = base64.urlsafe_b64decode(safe_id + "==").decode()
         except:
-            # Default to anime4up_scraper if decoding fails
-            details = await anime4up_scraper.fetch_details(safe_id)
-        
-        if not details:
-            raise HTTPException(status_code=404, detail="Anime not found")
-        # api_cache.set(cache_key, details, ttl_seconds=86400)
-        return details
+            decoded_url = safe_id
+            
+        # Dispatch to correct scraper
+        if any(x in decoded_url for x in ["asd.homes", "arabseed", "mycima", "wecima"]):
+            return await mycima_scraper.fetch_details(safe_id)
+        elif "animerco.org" in decoded_url:
+            return await animerco_scraper.fetch_details(safe_id)
+        else:
+            # Default fallback (or if old IDs are cached)
+            return await anime4up_scraper.fetch_details(safe_id)
+            
     except Exception as e:
         logger.error(f"Error fetching anime details: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch details")
 
 @router.get("/episode/{safe_id}")
 async def get_anime_episode(safe_id: str):
-    # Temporarily disabled cache to force fresh data
-    # cache_key = f"anime_episode_{safe_id}"
-    # cached = api_cache.get(cache_key)
-    # if cached:
-    #     return cached
-    
     try:
-        # Determine which scraper to use based on the safe_id
+        # Decode to check domain
         try:
-            decoded_url = base64.urlsafe_b64decode(safe_id).decode()
-            
-            # Check if the decoded URL contains unsafe domains
-            unsafe_domains = ['larooza.homes', 'gaza.20', 'bit.ly', 'tinyurl.com', 'adf.ly', 'bc.vc', 'adfoc.us', 'shorte.st', 'ouo.io', 'clicksfly.com']
-            for domain in unsafe_domains:
-                if domain in decoded_url.lower():
-                    raise HTTPException(status_code=400, detail="Invalid or blocked content URL")
-            
-            if "animerco.org" in decoded_url:
-                episode = await animerco_scraper.fetch_episode(safe_id)
-            else:
-                episode = await anime4up_scraper.fetch_episode(safe_id)
-        except HTTPException:
-            # Re-raise HTTP exceptions
-            raise
+            decoded_url = base64.urlsafe_b64decode(safe_id + "==").decode()
         except:
-            # Default to anime4up_scraper if decoding fails
-            episode = await anime4up_scraper.fetch_episode(safe_id)
-        
-        if not episode:
-            raise HTTPException(status_code=404, detail="Episode not found")
-        # api_cache.set(cache_key, episode, ttl_seconds=86400)
-        return episode
+            decoded_url = safe_id
+            
+        if any(x in decoded_url for x in ["asd.homes", "arabseed", "mycima", "wecima"]):
+            # MyCima handles episodes differently (usually just details of the episode page)
+            # The fetch_details method in mycima can handle episode URLs too
+            return await mycima_scraper.fetch_details(safe_id)
+        elif "animerco.org" in decoded_url:
+            return await animerco_scraper.fetch_episode(safe_id)
+        else:
+            return await anime4up_scraper.fetch_episode(safe_id)
+            
     except Exception as e:
         logger.error(f"Error fetching episode: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch episode")

@@ -12,12 +12,12 @@ logger = logging.getLogger("api.courses")
 @router.get("/latest")
 async def get_latest_courses(page: int = 1):
     cache_key = f"courses_latest_{page}"
-    cached = api_cache.get(cache_key)
+    cached = await api_cache.get(cache_key)
     if cached: return cached
     
     try:
         items = await courses_scraper.fetch_latest_courses(page=page)
-        if items: api_cache.set(cache_key, items)
+        if items: await api_cache.set(cache_key, items)
         return items
     except Exception as e:
         logger.error(f"Error fetching latest courses: {e}")
@@ -26,12 +26,12 @@ async def get_latest_courses(page: int = 1):
 @router.get("/category/{cat_id}")
 async def get_category_courses(cat_id: str, page: int = 1):
     cache_key = f"courses_cat_{cat_id}_{page}"
-    cached = api_cache.get(cache_key)
+    cached = await api_cache.get(cache_key)
     if cached: return cached
     
     try:
         items = await courses_scraper.fetch_category_courses(cat_id, page=page)
-        if items: api_cache.set(cache_key, items)
+        if items: await api_cache.set(cache_key, items)
         return items
     except Exception as e:
         logger.error(f"Error fetching course category {cat_id}: {e}")
@@ -40,14 +40,14 @@ async def get_category_courses(cat_id: str, page: int = 1):
 @router.get("/details/{safe_id}")
 async def get_course_details(safe_id: str, user_id: Optional[str] = None):
     cache_key = f"course_details_{safe_id}"
-    details = api_cache.get(cache_key)
+    details = await api_cache.get(cache_key)
     
     if not details:
         try:
             details = await courses_scraper.fetch_course_details(safe_id)
             if not details:
                 raise HTTPException(status_code=404, detail="Course not found")
-            api_cache.set(cache_key, details, ttl_seconds=86400)
+            await api_cache.set(cache_key, details, ttl_seconds=86400)
         except HTTPException: raise
         except Exception as e:
             logger.error(f"Error fetching course details for {safe_id}: {e}")
@@ -92,13 +92,13 @@ async def update_course_progress(data: CourseProgressUpdate):
 @router.get("/lesson/{lesson_id}")
 async def get_lesson_video(lesson_id: str):
     cache_key = f"lesson_video_{lesson_id}"
-    cached = api_cache.get(cache_key)
+    cached = await api_cache.get(cache_key)
     if cached: return {"video_url": cached}
     
     try:
         video_url = await courses_scraper.fetch_lesson_video(lesson_id)
         if video_url:
-            api_cache.set(cache_key, video_url)
+            await api_cache.set(cache_key, video_url)
             return {"video_url": video_url}
         raise HTTPException(status_code=404, detail="Video not found")
     except Exception as e:

@@ -103,12 +103,57 @@ class MatchesScraper:
     def _run_browser_extraction(self, only_cookies: bool = False):
         driver = None
         try:
+            # Cleanup UC leftovers to prevent [WinError 183]
+            try:
+                import shutil
+                import os
+                uc_path = os.path.join(os.environ.get('APPDATA', ''), 'undetected_chromedriver')
+                if os.path.exists(uc_path):
+                    # Only remove the exe if it's causing issues, or the whole dir
+                    # Removing the whole dir ensures a fresh start
+                    for f in os.listdir(uc_path):
+                        if f.endswith(".exe"):
+                            try: os.remove(os.path.join(uc_path, f))
+                            except: pass
+            except:
+                pass
+
             options = uc.ChromeOptions()
             options.add_argument('--headless')
             options.add_argument('--no-sandbox')
             options.add_argument('--disable-dev-shm-usage')
             
-            driver = uc.Chrome(options=options)
+            # Try to detect Chrome version to prevent mismatch
+            version_main = None
+            try:
+                import winreg
+                keys = [
+                    (winreg.HKEY_CURRENT_USER, r"Software\Google\Chrome\BLBeacon"),
+                    (winreg.HKEY_LOCAL_MACHINE, r"Software\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe")
+                ]
+                for root, path in keys:
+                    try:
+                        with winreg.OpenKey(root, path) as key:
+                            v, _ = winreg.QueryValueEx(key, "version" if "BLBeacon" in path else "DisplayVersion")
+                            if v:
+                                version_main = int(v.split('.')[0])
+                                break
+                    except: continue
+                
+                # Fallback to file path inspection if registry fails
+                if not version_main:
+                    chrome_path = r"C:\Program Files\Google\Chrome\Application"
+                    if os.path.exists(chrome_path):
+                        for item in os.listdir(chrome_path):
+                            if item[0].isdigit() and '.' in item:
+                                version_main = int(item.split('.')[0])
+                                break
+            except: pass
+
+            # Hard fallback to a safe version if still None
+            if not version_main: version_main = 130 
+
+            driver = uc.Chrome(options=options, version_main=version_main)
             driver.set_page_load_timeout(60)
             
             # 1. Go to main page to get cookies
@@ -134,7 +179,11 @@ class MatchesScraper:
             return []
             
         except Exception as e:
-            logger.error(f"Browser extraction failed: {e}")
+            # Silence common shutdown errors to keep logs clean
+            if "CancelledError" in str(e) or "shutdown" in str(e).lower():
+                pass
+            else:
+                logger.error(f"Browser extraction failed: {e}")
             return []
         finally:
             if driver:

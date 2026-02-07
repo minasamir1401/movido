@@ -28,6 +28,12 @@ class CoursesScraper:
             "Accept-Language": "ar,en-US;q=0.9,en;q=0.8",
             "Referer": "https://www.google.com/",
         }
+        self.category_map = {
+            "programming": "12",
+            "graphic-design": "13",
+            "languages": "14",
+            "marketing": "15"
+        }
 
     async def _get_html(self, url: str) -> Optional[str]:
         now = time.time()
@@ -127,8 +133,9 @@ class CoursesScraper:
         return self._extract_course_items(BeautifulSoup(html, 'html.parser'))
 
     async def fetch_category_courses(self, cat_id: str, page: int = 1) -> List[Dict[str, Any]]:
-        # cat_id can be like "12" or "12/programming"
-        url = f"{self.BASE_URL}/certified/cat/{cat_id}?page={page}"
+        # Map slugs to IDs if necessary
+        actual_cat_id = self.category_map.get(cat_id.lower(), cat_id)
+        url = f"{self.BASE_URL}/certified/cat/{actual_cat_id}?page={page}"
         html = await self._get_html(url)
         if not html: return []
         return self._extract_course_items(BeautifulSoup(html, 'html.parser'))

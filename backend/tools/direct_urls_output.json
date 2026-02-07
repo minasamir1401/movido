@@ -1,0 +1,124 @@
+{
+  "title": "مسلسل بطل العالم الحلقة 1 الاولي",
+  "video_url": "https://larooza.top/video.php?vid=Yg22o3HXS",
+  "servers": [
+    {
+      "id": 1,
+      "name": "Server 1",
+      "type": "Larooza/OkPrime",
+      "embed_url": "https://qq.okprime.site/embed-42x9fpxdwp7r.html",
+      "status": "success",
+      "direct_url": "https://cdn2.okprimeone.site/hls2/01/00026/42x9fpxdwp7r_n/master.m3u8?t=kgDZtZOCLudaRWx6esp9lusyRCCICgFPPvXcnAMPqmQ&s=1769940333&e=7200&v=628705&i=0.0&sp=0",
+      "video_type": "hls",
+      "headers": {
+        "Referer": "https://qq.okprime.site/embed-42x9fpxdwp7r.html",
+        "Origin": "https://qq.okprime.site"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Server 2",
+      "type": "Unknown",
+      "embed_url": "https://vk.com/video_ext.php?oid=888426734&id=456240838",
+      "status": "failed",
+      "error": "No direct URL found"
+    },
+    {
+      "id": 3,
+      "name": "Server 3",
+      "type": "Unknown",
+      "embed_url": "https://rty1.film77.xyz/embed-q9632lsniukm.html",
+      "status": "success",
+      "direct_url": "https://rox7gqdcaq754dwohtrox7gqdcaq754dwohtrox7gqdcaq754dwoht.vood78.xyz/hls/cxcumwzxylcsvb3x6v5cswppwij6xynob6iazxliycjty2anp5hmuqjhssaa/master.m3u8",
+      "video_type": "hls",
+      "headers": {
+        "Referer": "https://rty1.film77.xyz/embed-q9632lsniukm.html",
+        "Origin": "https://rty1.film77.xyz"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Server 4",
+      "type": "Unknown",
+      "embed_url": "https://vidspeed.org/embed-z81cc579ookp.html",
+      "status": "success",
+      "direct_url": "https://vsped-store5-jnv.cdnz.quest/hls2/02/00221/z81cc579ookp_l/master.m3u8?t=Eplt4cFcbDKkU_otIeVyRKkfvt_8rBhuYZHIsw7ibA8&s=1769940336&e=43200&v=57567334&i=0.3&sp=0",
+      "video_type": "hls",
+      "headers": {
+        "Referer": "https://vidspeed.org/embed-z81cc579ookp.html",
+        "Origin": "https://vidspeed.org"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Server 5",
+      "type": "Short.icu",
+      "embed_url": "https://short.icu/0ZxiL9kR36",
+      "status": "failed",
+      "error": "No direct URL found"
+    },
+    {
+      "id": 6,
+      "name": "Server 6",
+      "type": "Vidmoly",
+      "embed_url": "https://vidmoly.net/embed-uzybb5jbjbs7.html",
+      "status": "success",
+      "direct_url": "https://prx-1360-ant-vs.vmwesa.online/hls2/01/02171/49ka439bsdtu_,n,l,.urlset/master.m3u8?t=BCULJ__xKtvE0yui7K5K9YnGaTNTxVPB5es1nx3AiCY=&s=1769940341&e=43200&v=&srv=bck-1476-ant-v1&i=0.4&sp=0&asn=36992",
+      "video_type": "hls",
+      "headers": {
+        "Referer": "https://vidmoly.net/embed-uzybb5jbjbs7.html"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Server 7",
+      "type": "Unknown",
+      "embed_url": "https://abstream.to/e/vutdl83qj3hc",
+      "status": "success",
+      "direct_url": "https://urosrv1.streambucket.xyz/hls2/01/00329/,vutdl83qj3hc_n,lang/ara/vutdl83qj3hc_ara,lang/eng/vutdl83qj3hc_eng,.urlset/master.m3u8?t=Al298XC95Eo3TmKnpP7TNffzFfkYo6QGfUHZihjcly0&s=1769940341&e=7200&v=163602412&srv=mystor1&i=0.3&sp=3000&fr=vutdl83qj3hc",
+      "video_type": "hls",
+      "headers": {
+        "Referer": "https://abstream.to/e/vutdl83qj3hc",
+        "Origin": "https://abstream.to"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Server 8",
+      "type": "Unknown",
+      "embed_url": "https://mxdrop.to/e/363ppzqgsw9647",
+      "status": "success",
+      "direct_url": "https://s-delivery37.mxcontent.net/v2/363ppzqgsw9647.mp4?s=fD5yDK4SYSnZFN5crFmV2g&e=1769961942&_t=1769940690",
+      "video_type": "mp4",
+      "headers": {
+        "Referer": "https://mxdrop.to/e/363ppzqgsw9647"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Server 9",
+      "type": "Unknown",
+      "embed_url": "https://dsvplay.com/e/dbrlr7kvv5ys",
+      "status": "failed",
+      "error": "No direct URL found"
+    },
+    {
+      "id": 10,
+      "name": "Server 10",
+      "type": "VOE",
+      "embed_url": "https://voe.sx/e/grij5lnd6lgd",
+      "status": "failed",
+      "error": "No direct URL found"
+    },
+    {
+      "id": 11,
+      "name": "Server 11",
+      "type": "OK.ru",
+      "embed_url": "https://www.ok.ru/videoembed/11509357742737",
+      "status": "failed",
+      "error": "No direct URL found"
+    }
+  ],
+  "working_servers": 6,
+  "failed_servers": 5
+}

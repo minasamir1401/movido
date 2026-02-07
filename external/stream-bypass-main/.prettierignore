@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+.vscode
+.zed
+
+node_modules
+package-lock.json
+.output
+.wxt
+
+.github

@@ -4,7 +4,7 @@ import os
 
 class Settings(BaseSettings):
     VERSION: str = "2.1.0-nitro"
-    APP_TITLE: str = "MEIH Movies API"
+    APP_TITLE: str = "MOVIDO Movies API"
     
     # Environment
     IS_HF: bool = os.environ.get("SPACE_ID") is not None or os.environ.get("HF_SPACE") is not None
@@ -19,6 +19,9 @@ class Settings(BaseSettings):
     
     # Proxies
     PROXY_LIST: List[str] = [p.strip() for p in os.getenv("PROXY_LIST", "").split(",") if p.strip()]
+    
+    # Security
+    ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "admin123")
     
     # Integrations
     TELEGRAM_BOT_TOKEN: Optional[str] = os.getenv("TELEGRAM_BOT_TOKEN")

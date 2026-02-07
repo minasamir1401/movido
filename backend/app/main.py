@@ -12,7 +12,7 @@ from contextlib import asynccontextmanager
 from .core.config import settings
 from .core.database import db_manager
 from .api.router import api_router
-from .services.worker import auto_broadcaster, warm_up_services
+from .services.worker import auto_broadcaster, warm_up_services, background_cache_refresher
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
@@ -29,6 +29,7 @@ async def lifespan(app: FastAPI):
         # Start background tasks
         asyncio.create_task(auto_broadcaster())
         asyncio.create_task(warm_up_services())
+        asyncio.create_task(background_cache_refresher())
         
         logger.info("Application started successfully")
     except Exception as e:
@@ -53,15 +54,17 @@ async def global_exception_handler(request: Request, exc: Exception):
         content={"detail": "Internal Server Error", "error": str(exc)},
     )
 
-# Middleware
+# Middleware configuration
+# We remove GZipMiddleware as it can cause ERR_EMPTY_RESPONSE when proxying video streams
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["Content-Disposition", "Content-Length", "X-Request-ID"]
 )
-app.add_middleware(GZipMiddleware, minimum_size=1000)
+# app.add_middleware(GZipMiddleware, minimum_size=1000) # Disabled for stream stability
 
 @app.middleware("http")
 async def enterprise_logging_middleware(request: Request, call_next):
@@ -109,7 +112,7 @@ Allow: /courses/
 Allow: /downloader
 
 # Sitemaps
-Sitemap: https://lmina.com/sitemap.xml
+Sitemap: https://movido.com/sitemap.xml
 
 # AI Crawler optimization
 User-agent: GPTBot
@@ -131,7 +134,7 @@ Allow: /
 async def sitemap():
     from scraper.engine import scraper
     
-    base_url = "https://lmina.com"
+    base_url = "https://movido.com"
     pages = ["/", "/downloader", "/courses", "/search"]
     
     # Add major categories
@@ -143,13 +146,7 @@ async def sitemap():
         pages.append(f"/category/{cat}")
         
     # Add latest items (fetch first page of home)
-    try:
-        latest_items = await scraper.fetch_home(page=1)
-        if latest_items:
-            for item in latest_items[:50]: # Limit to top 50
-                pages.append(f"/watch/{item['id']}")
-    except:
-        pass
+
 
     xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
