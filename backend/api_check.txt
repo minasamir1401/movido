@@ -1,0 +1,3 @@
+Requesting: http://localhost:8000/api/anime/details/aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvY2hhaW5zYXctbWFuLW1vdmllLXJlemUtaGVuLw==
+Error: 404
+{"detail":"Not Found"}

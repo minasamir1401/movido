@@ -1,0 +1,500 @@
+{
+    "الأنميات المثبتة": [
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvYm9rdS1uby1oZXJvLWFjYWRlbWlhLWZpbmFsLXNlYXNvbi8=",
+            "title": "Boku no Hero Academia: Final Season",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvZ2FjaGlha3V0YS8=",
+            "title": "Gachiakuta",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUva2luZ2RvbS02dGgtc2Vhc29uLw==",
+            "title": "Kingdom 6th Season",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvb25lLXB1bmNoLW1hbi0zLw==",
+            "title": "One Punch Man 3",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvc3B5LXgtZmFtaWx5LXNlYXNvbi0zLw==",
+            "title": "Spy x Family Season 3",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvdG91Z2VuLWFua2kv",
+            "title": "Tougen Anki",
+            "poster": "",
+            "type": "series"
+        }
+    ],
+    "أخر الحلقات المضافة": [
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS90YW1vbi1rdW4taW1hLWRvY2NoaS0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktMi8=",
+            "title": "Tamon-kun Ima Docchi!? الحلقة 2",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9zaGlib3UteXV1Z2ktZGUtbWVzaGktd28ta3V1LSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xLw==",
+            "title": "Shibou Yuugi de Meshi wo Kuu الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS95dXVzaGEtcGFydHktd28tb2lkYXNhcmV0YS1raXlvdWJpbmJvdS0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktMi8=",
+            "title": "Yuusha Party wo Oidasareta Kiyoubinbou الحلقة 2",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS8yOS1zYWktZG9rdXNoaW4tY2h1dWtlbi1ib3VrZW5zaGEtbm8tbmljaGlqb3UtJWQ4JWE3JWQ5JTg0JWQ4JWFkJWQ5JTg0JWQ5JTgyJWQ4JWE5LTEv",
+            "title": "29-sai Dokushin Chuuken Boukensha no Nichijou الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9va2lyYWt1LXJ5b3VzaHUtbm8tdGFub3NoaWktcnlvdWNoaS1ib3VlaS0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktMS8=",
+            "title": "Okiraku Ryoushu no Tanoshii Ryouchi Bouei الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9hcm5lLW5vLWppa2VuYm8tJWQ4JWE3JWQ5JTg0JWQ4JWFkJWQ5JTg0JWQ5JTgyJWQ4JWE5LTEv",
+            "title": "Arne no Jikenbo الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kYXJ3aW4tamloZW4tJWQ4JWE3JWQ5JTg0JWQ4JWFkJWQ5JTg0JWQ5JTgyJWQ4JWE5LTEv",
+            "title": "Darwin Jihen الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9tYXlvbmFrYS1oZWFydC10dW5lLSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xLw==",
+            "title": "Mayonaka Heart Tune الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS95dXVzaGEtcGFydHktbmkta2F3YWlpLWtvLWdhLWl0YS1ub2RlLWtva3VoYWt1LXNoaXRlbWl0YS0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktMS8=",
+            "title": "Yuusha Party ni Kawaii Ko ga Ita node Kokuhaku shitemita الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9tYW91LW5vLW11c3VtZS13YS15YXNhc2hpc3VnaXJ1LSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0yLw==",
+            "title": "Maou no Musume wa Yasashisugiru!! الحلقة 2",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9tYW91LW5vLW11c3VtZS13YS15YXNhc2hpc3VnaXJ1LSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xLw==",
+            "title": "Maou no Musume wa Yasashisugiru!! الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9vc2FuYW5hamltaS10by13YS1sb3ZlLWNvbWVkeS1uaS1uYXJhbmFpLSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xLw==",
+            "title": "Osananajimi to wa Love Comedy ni Naranai الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9nb2xkZW4ta2FtdXktc2Fpc2h1dXNob3UtJWQ4JWE3JWQ5JTg0JWQ4JWFkJWQ5JTg0JWQ5JTgyJWQ4JWE5LTEv",
+            "title": "Golden Kamuy: Saishuushou الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS92aWdpbGFudGUtYm9rdS1uby1oZXJvLWFjYWRlbWlhLWlsbGVnYWxzLTJuZC1zZWFzb24tJWQ4JWE3JWQ5JTg0JWQ4JWFkJWQ5JTg0JWQ5JTgyJWQ4JWE5LTEv",
+            "title": "Vigilante: Boku no Hero Academia Illegals 2nd Season الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9hby1uby1vcmNoZXN0cmEtc2Vhc29uLTItJWQ4JWE3JWQ5JTg0JWQ4JWFkJWQ5JTg0JWQ5JTgyJWQ4JWE5LTEzLw==",
+            "title": "Ao no Orchestra Season 2 الحلقة 13",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktMTMv",
+            "title": "Digimon Beatbreak الحلقة 13",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9pa29rdS1uaWtraS0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktMS8=",
+            "title": "Ikoku Nikki الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9nb3Vtb24tYmFpdG8ta3VuLW5vLW5pY2hpam91LSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xLw==",
+            "title": "Goumon Baito-kun no Nichijou الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9raXpva3UtdGVuc2VpLW1lZ3VtYXJldGEtdW1hcmUta2FyYS1zYWlreW91LW5vLWNoaWthcmEtd28tZXJ1LSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xLw==",
+            "title": "Kizoku Tensei: Megumareta Umare kara Saikyou no Chikara wo Eru الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9oYW5hemFrYXJpLW5vLWtpbWl0YWNoaS1lLSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0yLw==",
+            "title": "Hanazakari no Kimitachi e الحلقة 2",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9oYW5hemFrYXJpLW5vLWtpbWl0YWNoaS1lLSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xLw==",
+            "title": "Hanazakari no Kimitachi e الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9tYWp1dHN1c2hpLWt1bm9uLXdhLW1pZXRlaXJ1LSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0yLw==",
+            "title": "Majutsushi Kunon wa Mieteiru الحلقة 2",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9tYWp1dHN1c2hpLWt1bm9uLXdhLW1pZXRlaXJ1LSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xLw==",
+            "title": "Majutsushi Kunon wa Mieteiru الحلقة 1",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS94aWFuLXdhbmctZGUtcmljaGFuZy1zaGVuZ2h1by01LSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS01Lw==",
+            "title": "Xian Wang de Richang Shenghuo 5 الحلقة 5",
+            "poster": "",
+            "type": "series"
+        }
+    ],
+    "الحلقات غير المثبتة": [
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9vbmUtcGllY2UtJWQ4JWE3JWQ5JTg0JWQ4JWFkJWQ5JTg0JWQ5JTgyJWQ4JWE5LTk0OGxvLw==",
+            "title": "One Piece الحلقة 1155",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9nYWNoaWFrdXRhLSVkOCVhNyVkOSU4NCVkOCVhZCVkOSU4NCVkOSU4MiVkOCVhOS0xaGZrZy8=",
+            "title": "Gachiakuta الحلقة 22",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTkteG15bm0v",
+            "title": "Digimon Beatbreak الحلقة 7",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktcTY2eHMv",
+            "title": "Digimon Beatbreak الحلقة 8",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktb3lic3gv",
+            "title": "Digimon Beatbreak الحلقة 9",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTkteno5d3Qv",
+            "title": "Digimon Beatbreak الحلقة 5",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktM3hjZHQv",
+            "title": "Digimon Beatbreak الحلقة 6",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktbWZ1MGEv",
+            "title": "Digimon Beatbreak الحلقة 4",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktaHVzc3Yv",
+            "title": "Digimon Beatbreak الحلقة 2",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktejllNXIv",
+            "title": "Digimon Beatbreak الحلقة 3",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktZDFmZzQv",
+            "title": "Digimon Beatbreak الحلقة 10",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvZXBpc29kZS9kaWdpbW9uLWJlYXRicmVhay0lZDglYTclZDklODQlZDglYWQlZDklODQlZDklODIlZDglYTktcml4bmsv",
+            "title": "Digimon Beatbreak الحلقة 1",
+            "poster": "",
+            "type": "series"
+        }
+    ],
+    "أحدث أنميات موسم خريف 2025": [
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvaHlha3VlbXUv",
+            "title": "Hyakuemu.",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvc2h1dW1hdHN1LW5vLXdhbGt1cmUtaWlpLw==",
+            "title": "Shuumatsu no Walküre III",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvY2hhaW5zYXctbWFuLW1vdmllLXJlemUtaGVuLw==",
+            "title": "Chainsaw Man Movie: Reze-hen",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvZnVqaW1vdG8tdGF0c3VraS0xNy0yNi8=",
+            "title": "Fujimoto Tatsuki 17-26",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvZGlzbmV5LXR3aXN0ZWQtd29uZGVybGFuZC10aGUtYW5pbWF0aW9uLWVwaXNvZGUtb2YtaGVhcnRzbGFieXVsLw==",
+            "title": "Disney Twisted-Wonderland The Animation: Episode of Heartslabyul",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbXVzaG9rdS1uby1laXl1dS1iZXRzdS1uaS1za2lsbC1uYW5rYS1pcmFuYWthdHRhLW4tZGEtZ2Ev",
+            "title": "Mushoku no Eiyuu: Betsu ni Skill Nanka Iranakatta n da ga",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUva2ltaS10by1rb2V0ZS1rb2ktbmktbmFydS8=",
+            "title": "Kimi to Koete Koi ni Naru",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvY2hhbnRvLXN1ZW5haS1reXV1a2V0c3VraS1jaGFuLw==",
+            "title": "Chanto Suenai Kyuuketsuki-chan",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvZ25vc2lhLw==",
+            "title": "Gnosia",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvYW8tbm8tb3JjaGVzdHJhLXNlYXNvbi0yLw==",
+            "title": "Ao no Orchestra Season 2",
+            "poster": "",
+            "type": "series"
+        }
+    ],
+    "أكثر أنميات هذا الموسم مشاهدة": [
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUveWFzZWktbm8tbGFzdC1ib3NzLWdhLWFyYXdhcmV0YS8=",
+            "title": "Yasei no Last Boss ga Arawareta!",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbW9mYS1nb25nemh1LWRlLXhpYW8tZmFubmFvLw==",
+            "title": "Mofa Gongzhu de Xiao Fannao",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvc296YWktc2Fpc2h1a2Etbm8taXNla2FpLXJ5b2tvdWtpLw==",
+            "title": "Sozai Saishuka no Isekai Ryokouki",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvdG93YS1uby15dXVndXJlLw==",
+            "title": "Towa no Yuugure",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbWlrYXRhLWdhLXlvd2FzdWdpdGUtaG9qby1tYWhvdS1uaS10ZXNzaGl0ZWl0YS1reXV1dGVpLW1haG91c2hpLXRzdWlob3Utc2FyZXRlLXNhaWt5b3Utd28tbWV6YXNoaW1hc3Uv",
+            "title": "Mikata ga Yowasugite Hojo Mahou ni Tesshiteita Kyuutei Mahoushi, Tsuihou sarete Saikyou wo Mezashimasu",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvYW5zYXRzdXNoYS1kZS1hcnUtb3JlLW5vLXN0YXR1cy1nYS15dXVzaGEteW9yaS1tby1ha2lyYWthLW5pLXRzdXlvaS1uby1kYS1nYS8=",
+            "title": "Ansatsusha de Aru Ore no Status ga Yuusha yori mo Akiraka ni Tsuyoi no da ga",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvYWt1amlraS1yZWlqb3UtdG8ta3lvdWtldHN1LWtvdXNoYWt1Lw==",
+            "title": "Akujiki Reijou to Kyouketsu Koushaku",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbXVnZW4tZ2FjaGEv",
+            "title": "Mugen Gacha",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvc2FpZ28tbmktaGl0b3RzdS1kYWtlLW9uZWdhaS1zaGl0ZW1vLXlvcm9zaGlpLWRlc2hvdS1rYS8=",
+            "title": "Saigo ni Hitotsu dake Onegai shitemo Yoroshii deshou ka",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUva2FrdXJpeW8tbm8teWFkb21lc2hpLW5pLw==",
+            "title": "Kakuriyo no Yadomeshi Ni",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbmFnZWtpLW5vLWJvdXJlaS13YS1pbnRhaS1zaGl0YWktcGFydC0yLw==",
+            "title": "Nageki no Bourei wa Intai shitai Part 2",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbGV0cy1wbGF5LXF1ZXN0LWRhcmFrZS1uby1teS1saWZlLw==",
+            "title": "Let's Play: Quest-darake no My Life",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvYnVraXlvdS1uYS1zZW5wYWkv",
+            "title": "Bukiyou na Senpai",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvdG9tb2RhY2hpLW5vLWltb3V0by1nYS1vcmUtbmktZGFrZS11emFpLw==",
+            "title": "Tomodachi no Imouto ga Ore ni dake Uzai",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvY2hpY2hpLXdhLWVpeXV1LWhhaGEtd2Etc2VpcmVpLW11c3VtZS1uby13YXRhc2hpLXdhLXRlbnNlaXNoYS8=",
+            "title": "Chichi wa Eiyuu Haha wa Seirei Musume no Watashi wa Tenseisha",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUveWFuby1rdW4tbm8tZnV0c3V1LW5vLWhpYmkv",
+            "title": "Yano-kun no Futsuu no Hibi",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUva2FvLW5pLWRlbmFpLWthc2hpd2FkYS1zYW4tdG8ta2FvLW5pLWRlcnUtb290YS1rdW4v",
+            "title": "Kao ni Denai Kashiwada-san to Kao ni Deru Oota-kun",
+            "poster": "",
+            "type": "series"
+        }
+    ],
+    "أكثر الأنميات مشاهدة": [
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvb25lLXBpZWNlLWRoZmRzZy8=",
+            "title": "One Piece",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbmFydXRvLXNoaXBwdXVkZW4v",
+            "title": "Naruto: Shippuuden",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvZGV0ZWN0aXZlLWNvbmFuLw==",
+            "title": "Detective Conan",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvJWQ4JWE4JWQ5JTg0JWQ4JWE3JWQ5JTgzLSVkOSU4MyVkOSU4NCVkOSU4OCVkOSU4MSVkOCViMS0lZDklODUlZDglYWElZDglYjElZDglYWMlZDklODUv",
+            "title": "Black Clover",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvYmxlYWNoLw==",
+            "title": "Bleach",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvYm9ydXRvLW5hcnV0by1uZXh0LWdlbmVyYXRpb25zLw==",
+            "title": "Boruto: Naruto Next Generations",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvaHVudGVyLXgtaHVudGVyLTIwMTEv",
+            "title": "Hunter x Hunter (2011)",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbmFydXRvLw==",
+            "title": "Naruto",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvZHJkZmFnb24tYnFzYWxsLWZkei8=",
+            "title": "Dragon Ball Z",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvZHJhZ3Nkb24tYmFmZ2xsLXNmZnVwZXIv",
+            "title": "Dragon Ball Super",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvanVqdXRzdS1rYWlzZW4tdHYtMjQv",
+            "title": "Jujutsu Kaisen (TV)",
+            "poster": "",
+            "type": "series"
+        },
+        {
+            "id": "aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvJWQ4JWFmJWQ4JWE3JWQ5JThhLSVkOCVhNyVkOSU4NCVkOCViNCVkOCVhYyVkOCVhNyVkOCViOS0yMDIwLw==",
+            "title": "Dragon Quest: Dai no Daibouken (2020)",
+            "poster": "",
+            "type": "series"
+        }
+    ]
+}

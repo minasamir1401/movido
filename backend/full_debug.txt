@@ -1,0 +1,5 @@
+Debug: Fetching details for Anime ID: aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvY2hhaW5zYXctbWFuLW1vdmllLXJlemUtaGVuLw==
+Title: Chainsaw Man Movie: Reze-hen
+Type: series
+Episodes Count: 1
+Error: 'charmap' codec can't encode characters in position 21-26: character maps to <undefined>

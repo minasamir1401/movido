@@ -1,0 +1,24 @@
+Testing ID: aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvbWYtZ2hvc3QtM3JkLXNlYXNvbi8=
+Decoded URL: https://4r.2qk9x7b.shop/anime/mf-ghost-3rd-season/
+Title: MF Ghost 3rd Season
+Episodes: 1
+First Ep: <error>
+Servers: 17
+ - megamax[HD]: https://megamax.me/iframe/n6ZR756u9a8Oj
+ - megamax2[HD]: https://megatukmax.xyz/e/n6ZR756u9a8Oj
+ - larhu[HD]: https://w.larhu.website/play.php?id=isudgpt79bc8
+ - <name error>: https://mega.nz/embed/uUE2ADSD#4AuK5bZ_hC2vQLxzD8zmbzd4n1c6FJWLIBfX7H4Z4fE
+ - vk[HD]: https://vkvideo.ru/video_ext.php?oid=-230608608&id=456239292&hash=8aec3391804eb887&hd=3
+ - videa[HD]: https://videa.hu/player?v=3Z5mvt4lIivwaiKE
+ - voe.sx[HD]: https://voe.sx/e/fiovbrurmyyh
+ - vidmoly[HD]: https://vidmoly.net/embed-36by3i2c06ff.html
+ - uqload[HD]: https://uqload.bz/embed-degagvae6xwe.html
+ - DoodStream[HD]: https://dsvplay.com/e/a5m8kshznley
+ - file-upload.org[HD]: https://file-upload.org/embed-p400utp4157t.html
+ - Mp4upload[HD]: https://mp4upload.com/embed-wqe142rpvzth.html
+ - <name error>: https://mega.nz/embed/jIV3jCwA#ykkA0VfccRvvcWRhqt65Y22iusVCL4tgN4kpq98H1vs
+ - file-upload.org[FHD]: https://file-upload.org/embed-k4aof94p6xv2.html
+ - <name error>: https://mega.nz/embed/zUFyzBwb#wtksuiy50CmsTS4_F63EBTjKBMCvxo3v48ttMkcTXFo
+ - file-upload.org[SD]: https://file-upload.org/embed-x0xt70a0f0ij.html
+ - Mp4upload[SD]: https://mp4upload.com/embed-4e1giyf1fa76.html
+Downloads: 12

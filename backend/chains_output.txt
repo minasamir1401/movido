@@ -1,0 +1,29 @@
+Debug: Fetching details for Anime ID: aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvY2hhaW5zYXctbWFuLW1vdmllLXJlemUtaGVuLw==
+URL: https://4r.2qk9x7b.shop/anime/chainsaw-man-movie-reze-hen/
+Title: Chainsaw Man Movie: Reze-hen
+Type: series
+Status: Unknown
+Episodes Found: 1
+First Episode URL: https://4r.2qk9x7b.shop/episode/%d9%81%d9%8a%d9%84%d9%85-chainsaw-man-movie-reze-hen/
+Servers on First Ep: 13
+ - megamax[HD]: https://megamax.me/iframe/gNCl3NTW6PZQc
+ - larhu[HD]: https://w.larhu.website/play.php?id=6gsj9x9xcp90
+ - vidmoly[HD]: https://vidmoly.net/embed-1jpa65h83kav.html
+ - voe.sx[HD]: https://voe.sx/e/5cjmxsv4rqe7
+ - videa[HD]: https://videa.hu/player?v=CHhcjhTynuMc1UYw
+ - vk[HD]: https://vkvideo.ru/video_ext.php?oid=-230564661&id=456240432&hash=be283203c3f67397&hd=3&autoplay=1
+ - DoodStream[HD]: https://dsvplay.com/e/l1h2zr4tvxup
+ - file-upload.org[HD]: https://file-upload.org/embed-te1wapdp8a16.html
+ - file-upload.org[FHD]: https://file-upload.org/embed-itvnz34vb70r.html
+ - file-upload.org[SD]: https://file-upload.org/embed-0q7k2j7uen2e.html
+Servers on Main Page (details['servers']): 13
+ - megamax[HD]: https://megamax.me/iframe/gNCl3NTW6PZQc
+ - larhu[HD]: https://w.larhu.website/play.php?id=6gsj9x9xcp90
+ - vidmoly[HD]: https://vidmoly.net/embed-1jpa65h83kav.html
+ - voe.sx[HD]: https://voe.sx/e/5cjmxsv4rqe7
+ - videa[HD]: https://videa.hu/player?v=CHhcjhTynuMc1UYw
+ - vk[HD]: https://vkvideo.ru/video_ext.php?oid=-230564661&id=456240432&hash=be283203c3f67397&hd=3&autoplay=1
+ - DoodStream[HD]: https://dsvplay.com/e/l1h2zr4tvxup
+ - file-upload.org[HD]: https://file-upload.org/embed-te1wapdp8a16.html
+ - file-upload.org[FHD]: https://file-upload.org/embed-itvnz34vb70r.html
+ - file-upload.org[SD]: https://file-upload.org/embed-0q7k2j7uen2e.html

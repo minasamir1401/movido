@@ -1,0 +1,37 @@
+Fetching Home...
+Found 5 items to test.
+
+TEST 1/5: Boku no Hero Academia: Final Season (aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvYm9rdS1uby1oZXJvLWFjYWRlbWlhLWZpbmFsLXNlYXNvbi8=)
+  > Title: Boku no Hero Academia: Final Season
+  > Series with 11 episodes. Checking first episode...
+  > Servers: 16
+    - First Server: megamax[HD]
+  > Downloads: 13
+
+TEST 2/5: Gachiakuta (aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvZ2FjaGlha3V0YS8=)
+  > Title: Gachiakuta
+  > Series with 24 episodes. Checking first episode...
+  > Servers: 17
+    - First Server: megamax[HD]
+  > Downloads: 14
+
+TEST 3/5: Kingdom 6th Season (aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUva2luZ2RvbS02dGgtc2Vhc29uLw==)
+  > Title: Kingdom 6th Season
+  > Series with 13 episodes. Checking first episode...
+  > Servers: 18
+    - First Server: megamax[HD]
+  > Downloads: 15
+
+TEST 4/5: One Punch Man 3 (aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvb25lLXB1bmNoLW1hbi0zLw==)
+  > Title: One Punch Man 3
+  > Series with 13 episodes. Checking first episode...
+  > Servers: 17
+    - First Server: megamax[HD]
+  > Downloads: 14
+
+TEST 5/5: Spy x Family Season 3 (aHR0cHM6Ly80ci4ycWs5eDdiLnNob3AvYW5pbWUvc3B5LXgtZmFtaWx5LXNlYXNvbi0zLw==)
+  > Title: Spy x Family Season 3
+  > Series with 13 episodes. Checking first episode...
+  > Servers: 18
+    - First Server: megamax[HD]
+  > Downloads: 13

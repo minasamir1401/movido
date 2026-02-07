@@ -1,0 +1,349 @@
+<html lang="ar" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>𝗵𝗮𝗺𝗼 𝘁𝘃 𝗽𝗿𝗼</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.0/dist/hls.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <script>
+    (function() {
+        var forbiddenUA = /Kiwi|HttpCanary|PhantomJS|Selenium|Headless/i;
+        if (forbiddenUA.test(navigator.userAgent)) {
+            document.write('Blocked Browser Detected.');
+            window.stop(); throw new Error("Blocked");
+        }
+    })();
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123) return false;
+        if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) return false;
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+    }
+  </script>
+
+  <style>
+    /* BASIC STYLE */
+    :root { --primary-color: #d4af37; --dark-bg: #0f0f0f; --light-bg: #1c1c1c; }
+    body { margin: 0; padding: 0; background: linear-gradient(135deg, var(--dark-bg), var(--light-bg)); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; min-height: 100vh; user-select: none; -webkit-user-select: none; overflow-x: hidden; }
+    
+    header { padding: 20px; text-align: center; font-size: 24px; font-weight: bold; background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); background-size: 400% 400%; animation: gradientBG 15s ease infinite; border-bottom: 2px solid var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.3); position: relative; z-index: 100; }
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    
+    .video-container { width: 95%; max-width: 1200px; margin: 20px auto; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: #000; }
+    .video-section { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; }
+    
+    /* PLAYER UI */
+    #player-container { position: absolute; inset: 0; direction: ltr; }
+    #video-wrapper { position: absolute; inset: 0; z-index: 1; background: #000; }
+    #video { width: 100%; height: 100%; object-fit: contain; }
+    
+    #loading-spinner { width: 60px; height: 60px; border: 5px solid rgba(255,255,255,0.2); border-top-color: #d4af37; border-radius: 50%; animation: spin 1s linear infinite; position: absolute; z-index: 100; display: none; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    @keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+    
+    #error-overlay { position: absolute; z-index: 99; inset: 0; background-color: rgba(0,0,0,0.85); color: #fff; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+    
+    .controls-overlay { position: absolute; z-index: 10; transition: opacity 0.3s; opacity: 0; visibility: hidden; pointer-events: none; }
+    .controls-overlay.visible { opacity: 1; visibility: visible; pointer-events: auto; }
+    
+    #bottom-controls-container { bottom: 10px; left: 10px; right: 10px; padding: 10px 15px; background: rgba(20, 20, 20, 0.8); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+    #center-controls { top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .center-controls-cluster { display: flex; align-items: center; gap: 40px; background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); padding: 15px 30px; border-radius: 50px; }
+    
+    .control-button, .center-control-button { background: none; border: none; color: #fff; cursor: pointer; padding: 5px; outline: none; transition: all 0.2s; }
+    .control-button:hover, .center-control-button:hover { color: var(--primary-color); transform: scale(1.1); }
+    .control-button i { width: 20px; height: 20px; }
+    .center-control-button i { width: 42px; height: 42px; }
+    
+    .progress-bar-container { width: 100%; padding: 10px 0; cursor: pointer; }
+    .progress-bar { width: 100%; height: 4px; background-color: rgba(255,255,255,0.2); border-radius: 2px; overflow: hidden; }
+    .progress-played { width: 0%; height: 100%; background: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }
+    
+    .bottom-controls { display: flex; justify-content: space-between; align-items: center; }
+    .controls-left, .controls-right { display: flex; align-items: center; gap: 15px; }
+    #time-display-container { color: #ddd; font-size: 0.85em; min-width: 80px; text-align: center; }
+
+    /* SETTINGS & CHANNELS */
+    #settings-popup { position: absolute; bottom: 70px; right: 20px; width: 220px; background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(15px); border-radius: 12px; z-index: 20; display: none; border: 1px solid var(--primary-color); overflow: hidden; animation: fadeIn 0.3s; }
+    .settings-header { display: flex; justify-content: space-between; padding: 12px 15px; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
+    .menu-item { display: flex; align-items: center; gap: 10px; padding: 12px 15px; cursor: pointer; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .menu-item:hover { background: rgba(212, 175, 55, 0.2); }
+    .menu-item-value { margin-left: auto; font-size: 0.8em; opacity: 0.7; }
+
+    #channels-overlay { position: absolute; top: 60px; right: 0; bottom: 60px; width: 250px; z-index: 15; transform: translateX(100%); transition: transform 0.3s ease; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); border-left: 1px solid rgba(255,255,255,0.1); overflow-y: auto; pointer-events: auto; }
+    #channels-overlay.visible { transform: translateX(0); }
+    #channels-container { display: flex; flex-direction: column; padding: 10px; gap: 5px; }
+    .channel-item-internal { padding: 10px 15px; background: rgba(255,255,255,0.05); border-radius: 8px; cursor: pointer; text-align: right; border: 1px solid transparent; }
+    .channel-item-internal:hover { background: rgba(255,255,255,0.15); }
+    .channel-item-internal.active { background: rgba(212, 175, 55, 0.2); color: var(--primary-color); border-color: var(--primary-color); }
+    
+    #channels-toggle { position: absolute; top: 15px; right: 15px; z-index: 25; background: rgba(0,0,0,0.5); border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
+
+    /* CONTENT GRID */
+    .channel-name { text-align: center; font-size: 22px; margin: 15px 0; color: var(--primary-color); }
+    .category-tabs { display: flex; justify-content: center; gap: 15px; padding: 15px; flex-wrap: wrap; }
+    .category-tab { padding: 10px 25px; background: rgba(26, 26, 26, 0.7); border-radius: 30px; cursor: pointer; transition: all 0.4s; border: 1px solid rgba(212, 175, 55, 0.3); }
+    .category-tab.active { background: var(--primary-color); color: #000; transform: translateY(-3px); }
+    .channel-list { display: none; flex-wrap: wrap; justify-content: center; gap: 15px; padding: 15px; max-width: 1200px; margin: 0 auto; }
+    .channel-list.active { display: flex; animation: fadeIn 0.5s ease-out; }
+    .channel-card { display: flex; align-items: center; background: linear-gradient(145deg, #1e1e1e, #171717); border-radius: 15px; padding: 10px; gap: 15px; cursor: pointer; width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); }
+    .channel-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+    .channel-card img { width: 70px; height: 50px; object-fit: cover; border-radius: 8px; }
+    .channel-card .title { font-size: 15px; font-weight: bold; flex-grow: 1; }
+    
+    @media (max-width: 768px) { .video-container { width: 100%; margin: 0; border-radius: 0; } .channel-card { width: 100%; } }
+  </style>
+</head>
+<body>
+
+  <header>𝗵𝗮𝗺𝗼 𝘁𝘃 𝗽𝗿𝗼</header>
+  
+  <div class="video-container animate__animated animate__fadeIn">
+    <div class="video-section">
+      <div id="player-container" style="cursor: default;">
+        <div id="loading-spinner" style="display: block;"></div>
+        <div id="error-overlay" style="display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle" style="width:40px;height:40px;margin-bottom:10px;color:#ffc107"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <h3 id="error-title">فشل تحميل البث</h3>
+          <p id="error-message">جاري إعادة المحاولة...</p>
+        </div>
+
+        <div id="channels-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg></div>
+        <div id="channels-overlay"><div style="padding:15px;font-weight:bold;border-bottom:1px solid rgba(255,255,255,0.1);text-align:right">القنوات</div><div id="channels-container"><div class="channel-item-internal" data-id="bein1">BeIN Sports 1</div><div class="channel-item-internal active" data-id="bein2">BeIN Sports 2</div><div class="channel-item-internal" data-id="bein3">BeIN Sports 3</div><div class="channel-item-internal" data-id="bein4">BeIN Sports 4</div><div class="channel-item-internal" data-id="bein5">BeIN Sports 5</div><div class="channel-item-internal" data-id="bein6">BeIN Sports 6</div><div class="channel-item-internal" data-id="bein7">BeIN Sports 7</div><div class="channel-item-internal" data-id="bein8">BeIN Sports 8</div><div class="channel-item-internal" data-id="bein9">BeIN Sports 9</div></div></div>
+
+        <div id="video-wrapper"><video id="video" playsinline="" crossorigin="anonymous" src="blob:https://hamottv.rf.gd/7c567d09-aae8-4ec7-a7da-36e6a7ffe2f0"></video></div>
+
+        <div id="settings-popup">
+          <div class="settings-header"><span>الإعدادات</span><span class="settings-close-btn" style="cursor:pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span></div>
+          <ul id="settings-list" style="list-style:none;padding:0;margin:0">
+            <li class="menu-item" id="quality-menu-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg><span>الجودة</span><span class="menu-item-value" id="current-quality">Auto</span></li>
+            <li class="menu-item" id="fit-screen-menu-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg><span>تومديد الشاشة</span><span class="menu-item-value" id="fit-screen-status">معطل</span></li>
+          </ul>
+        </div>
+
+        <div id="center-controls" class="controls-overlay visible">
+          <div class="center-controls-cluster">
+            <button class="control-button" id="seek-backward-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-ccw"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg></button>
+            <button class="center-control-button" id="play-pause-center-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg></button>
+            <button class="control-button" id="seek-forward-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-cw"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></button>
+          </div>
+        </div>
+
+        <div id="bottom-controls-container" class="controls-overlay visible">
+          <div class="progress-bar-container"><div class="progress-bar"><div class="progress-played"></div></div></div>
+          <div class="bottom-controls">
+            <div class="controls-left">
+              <button class="control-button" id="fullscreen-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></button>
+              <button class="control-button" id="fit-screen-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></button>
+              <button id="settings-btn" class="control-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
+            </div>
+            <div class="controls-right">
+              <div id="time-display-container">LIVE</div>
+              <button class="control-button" id="mute-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></button>
+              <button class="control-button" id="play-pause-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="channel-name animate__animated animate__fadeIn" id="currentChannelName">BeIN Sports 2</div>
+  
+  <div class="category-tabs animate__animated animate__fadeIn">
+    <div class="category-tab active" onclick="switchCategory('bein')">beIN SPORTS</div>
+    <div class="category-tab" onclick="switchCategory('alkass')">Al Kass SPORTS</div>
+    <div class="category-tab" onclick="switchCategory('ssc')">SSC SPORTS</div>
+  </div>
+  
+  <div class="channel-list active" id="bein-channels"><div class="channel-card"><img src="https://i.ibb.co/5hTNGxd3/image.jpg"><div class="title">BeIN Sports 1</div></div><div class="channel-card"><img src="https://i.ibb.co/dwhbSS9g/image.jpg"><div class="title">BeIN Sports 2</div></div><div class="channel-card"><img src="https://i.ibb.co/9HXNtwKn/image.jpg"><div class="title">BeIN Sports 3</div></div><div class="channel-card"><img src="https://i.ibb.co/PzJFcxqR/image.jpg"><div class="title">BeIN Sports 4</div></div><div class="channel-card"><img src="https://i.ibb.co/C551ztYq/image.jpg"><div class="title">BeIN Sports 5</div></div><div class="channel-card"><img src="https://i.ibb.co/TxXK7TYr/image.jpg"><div class="title">BeIN Sports 6</div></div><div class="channel-card"><img src="https://i.ibb.co/bgk059YL/image.jpg"><div class="title">BeIN Sports 7</div></div><div class="channel-card"><img src="https://i.ibb.co/fzyW40tj/image.jpg"><div class="title">BeIN Sports 8</div></div><div class="channel-card"><img src="https://i.ibb.co/1YFcL0nc/image.jpg"><div class="title">BeIN Sports 9</div></div></div>
+  <div class="channel-list" id="alkass-channels"><div class="channel-card"><img src="https://i.ibb.co/rG1k0d2s/image.jpg"><div class="title">Al Kass 1</div></div><div class="channel-card"><img src="https://i.ibb.co/j9fvPJDn/image.jpg"><div class="title">Al Kass 2</div></div><div class="channel-card"><img src="https://i.ibb.co/9kkKQGkh/image.jpg"><div class="title">Al Kass 3</div></div><div class="channel-card"><img src="https://i.ibb.co/ghnZ7Qt/image.jpg"><div class="title">Al Kass 4</div></div><div class="channel-card"><img src="https://i.ibb.co/1GNGYXpN/image.jpg"><div class="title">Al Kass 5</div></div></div>
+  <div class="channel-list" id="ssc-channels"><div class="channel-card"><img src="https://i.ibb.co/jZPZqwSC/image.jpg"><div class="title">SSC 1</div></div><div class="channel-card"><img src="https://i.ibb.co/5gFrcXVD/image.jpg"><div class="title">SSC 2</div></div><div class="channel-card"><img src="https://i.ibb.co/F4CK2BH8/image.jpg"><div class="title">SSC 3</div></div><div class="channel-card"><img src="https://i.ibb.co/tp1jHrbG/image.jpg"><div class="title">SSC 4</div></div><div class="channel-card"><img src="https://i.ibb.co/PsDZMPQv/image.jpg"><div class="title">SSC 5</div></div><div class="channel-card"><img src="https://i.ibb.co/XZkhxX4J/image.jpg"><div class="title">SSC Extra 1</div></div><div class="channel-card"><img src="https://i.ibb.co/XZqqGQjb/image.jpg"><div class="title">SSC Extra 2</div></div><div class="channel-card"><img src="https://i.ibb.co/fY6qsTy0/image.jpg"><div class="title">SSC Extra 3</div></div></div>
+
+  <script>
+    let channelsDB = {}, hlsInstance = null, controlsTimeout, isFitScreen = false;
+    const els = {
+      video: document.getElementById('video'), container: document.getElementById('player-container'),
+      loading: document.getElementById('loading-spinner'), errorOverlay: document.getElementById('error-overlay'),
+      controls: document.querySelectorAll('.controls-overlay'), playBtns: [document.getElementById('play-pause-btn'), document.getElementById('play-pause-center-btn')],
+      muteBtn: document.getElementById('mute-btn'), settingsPopup: document.getElementById('settings-popup'),
+      channelsOverlay: document.getElementById('channels-overlay')
+    };
+
+    async function fetchChannels() {
+        try {
+            const response = await fetch('?sys_load_api=1'); 
+            if(!response.ok) throw new Error("Error");
+            channelsDB = await response.json();
+            buildUI();
+            document.getElementById("currentChannelName").textContent = "اختر قناة لبدء المشاهدة";
+        } catch (e) { document.getElementById("currentChannelName").textContent = "خطأ في الاتصال"; }
+    }
+
+    function buildUI() {
+      for (const cat in channelsDB) {
+        const listDiv = document.getElementById(`${cat}-channels`);
+        if(listDiv) {
+            listDiv.innerHTML = ''; 
+            for (const id in channelsDB[cat]) {
+              const ch = channelsDB[cat][id];
+              const card = document.createElement("div");
+              card.className = "channel-card";
+              card.onclick = () => loadChannel(id, cat);
+              card.innerHTML = `<img src="${ch.image}"><div class="title">${ch.name}</div>`;
+              listDiv.appendChild(card);
+            }
+        }
+      }
+      populateInternalChannelList('bein');
+      feather.replace();
+    }
+    window.onload = fetchChannels;
+
+    function loadChannel(id, cat) {
+      if(!channelsDB[cat][id]) return;
+      els.errorOverlay.style.display = 'none';
+      els.loading.style.display = 'block';
+      
+      const channel = channelsDB[cat][id];
+      document.getElementById("currentChannelName").textContent = channel.name;
+      
+      document.querySelectorAll('.channel-item-internal').forEach(el => el.classList.remove('active'));
+      const internalItem = document.querySelector(`.channel-item-internal[data-id="${id}"]`);
+      if(internalItem) internalItem.classList.add('active');
+
+      const proxyUrl = "?google_stream=" + encodeURIComponent(channel.source);
+
+      if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+      els.video.src = '';
+      
+      if (Hls.isSupported()) {
+        // === إعدادات HLS القصوى للاستقرار (Ultra Stable Config) ===
+        hlsInstance = new Hls({
+            enableWorker: true,
+            lowLatencyMode: false, // نضحي بقليل من التأخير مقابل الاستقرار التام
+            
+            // إدارة البفر
+            maxBufferLength: 60, // تخزين 60 ثانية مقدماً
+            maxMaxBufferLength: 600, 
+            backBufferLength: 90,
+            
+            // التزامن
+            liveSyncDurationCount: 5, // التأخير 5 سيجمنت عن اللايف لضمان عدم التقطيع
+            liveMaxLatencyDurationCount: 15,
+            
+            // معالجة الأخطاء والشبكة
+            fragLoadingTimeOut: 20000,
+            manifestLoadingTimeOut: 20000,
+            levelLoadingTimeOut: 20000,
+            fragLoadingMaxRetry: 6, // محاولات أكثر عند الفشل
+            manifestLoadingMaxRetry: 6,
+        });
+        
+        hlsInstance.loadSource(proxyUrl);
+        hlsInstance.attachMedia(els.video);
+        hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+          els.video.play().catch(()=>showControls());
+          els.loading.style.display = 'none';
+        });
+        
+        // إعادة المحاولة الذكية عند الخطأ
+        hlsInstance.on(Hls.Events.ERROR, (e, data) => {
+            if(data.fatal) {
+                switch(data.type) {
+                    case Hls.ErrorTypes.NETWORK_ERROR:
+                        console.log("خطأ شبكة، جاري إعادة المحاولة...");
+                        hlsInstance.startLoad();
+                        break;
+                    case Hls.ErrorTypes.MEDIA_ERROR:
+                        console.log("خطأ ميديا، جاري المعالجة...");
+                        hlsInstance.recoverMediaError();
+                        break;
+                    default:
+                        showError("تعذر تشغيل البث");
+                        hlsInstance.destroy();
+                        break;
+                }
+            }
+        });
+      } else if (els.video.canPlayType('application/vnd.apple.mpegurl')) {
+        els.video.src = proxyUrl;
+        els.video.addEventListener('loadedmetadata', () => { els.video.play(); els.loading.style.display = 'none'; });
+      }
+    }
+
+    function showError(msg) { els.loading.style.display = 'none'; els.errorOverlay.style.display = 'flex'; }
+    function showControls() {
+      els.controls.forEach(c => c.classList.add('visible'));
+      els.container.style.cursor = 'default';
+      clearTimeout(controlsTimeout);
+      if (!els.video.paused) controlsTimeout = setTimeout(() => { if(els.settingsPopup.style.display !== 'block') els.controls.forEach(c => c.classList.remove('visible')); }, 3000);
+    }
+
+    els.playBtns.forEach(btn => btn.onclick = () => { els.video.paused ? els.video.play() : els.video.pause(); });
+    els.video.onclick = () => els.video.paused ? els.video.play() : els.video.pause();
+    els.container.onmousemove = showControls;
+    els.container.ontouchstart = showControls;
+
+    els.video.onplay = () => { els.playBtns.forEach(b => b.innerHTML = '<i data-feather="pause"></i>'); feather.replace(); showControls(); };
+    els.video.onpause = () => { els.playBtns.forEach(b => b.innerHTML = '<i data-feather="play"></i>'); feather.replace(); showControls(); };
+
+    // === تم التعديل: تدوير الشاشة تلقائياً عند الضغط على زر التوسيع ===
+    document.getElementById('fullscreen-btn').onclick = () => {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+            if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
+            }
+        } else {
+            els.container.requestFullscreen().then(() => {
+                if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock("landscape").catch((e) => console.log("Orientation lock not supported/allowed"));
+                }
+            }).catch((e) => console.log("Fullscreen request failed", e));
+        }
+    };
+    // =================================================================
+
+    document.getElementById('fit-screen-btn').onclick = () => { isFitScreen = !isFitScreen; els.video.style.objectFit = isFitScreen ? 'cover' : 'contain'; };
+    document.getElementById('settings-btn').onclick = (e) => { e.stopPropagation(); els.settingsPopup.style.display = els.settingsPopup.style.display === 'block' ? 'none' : 'block'; };
+    document.querySelector('.settings-close-btn').onclick = () => els.settingsPopup.style.display = 'none';
+    document.getElementById('channels-toggle').onclick = (e) => { e.stopPropagation(); els.channelsOverlay.classList.toggle('visible'); };
+
+    window.switchCategory = function(cat) {
+      document.querySelectorAll('.channel-list').forEach(el => el.classList.remove('active'));
+      document.getElementById(`${cat}-channels`).classList.add('active');
+      document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector(`.category-tab[onclick="switchCategory('${cat}')"]`).classList.add('active');
+      populateInternalChannelList(cat);
+    };
+
+    function populateInternalChannelList(cat) {
+        els.channelsOverlay.querySelector('#channels-container').innerHTML = '';
+        if(!channelsDB[cat]) return;
+        for(const id in channelsDB[cat]) {
+            const div = document.createElement('div');
+            div.className = 'channel-item-internal'; div.textContent = channelsDB[cat][id].name; div.dataset.id = id;
+            div.onclick = () => { loadChannel(id, cat); if(window.innerWidth < 768) els.channelsOverlay.classList.remove('visible'); };
+            els.channelsOverlay.querySelector('#channels-container').appendChild(div);
+        }
+    }
+  </script>
+
+
+<style>
+.mobile-footer { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; justify-content: center; padding: 8px 0; z-index: 9999; pointer-events: none; }
+.mobile-footer a { pointer-events: auto; display: flex; align-items: center; gap: 6px; font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: bold; color: #fff; text-decoration: none; background: linear-gradient(135deg,#00d4ff,#0077ff); padding: 8px 16px; border-radius: 30px; box-shadow: 0 0 12px rgba(0,212,255,0.6); }
+.mobile-footer a svg { width: 18px; height: 18px; fill: #fff; }
+</style>
+<div class="mobile-footer">
+  <a href="https://t.me/Mohamed891846" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M9.9999 16.2L9.8749 19.5C10.1249 19.5 10.2374 19.3875 10.3749 19.275L11.9999 17.775L15.3749 20.2875C15.9999 20.6625 16.4999 20.4375 16.6624 19.65L19.9499 4.53748C20.1749 3.52498 19.5499 3.07498 18.8999 3.34998L3.4499 9.29998C2.4624 9.69998 2.4749 10.2749 3.2749 10.5249L7.2749 11.7749L16.1749 6.22498C16.5999 5.97498 16.9874 6.11248 16.6624 6.37498L9.9999 16.2Z"></path></svg>
+    أنضم لقناة الموقع لمتابعة المزيد
+  </a>
+</div>
+</body></html>
